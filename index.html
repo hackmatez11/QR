@@ -380,6 +380,8 @@
         return;
       }
 
+      console.log('Loading data for patient ID:', patientId);
+
       try {
         // Fetch patient data
         const { data: patientData, error: patientError } = await supabaseClient
@@ -388,12 +390,17 @@
           .eq('id', patientId)
           .single();
 
-        if (patientError) throw patientError;
+        if (patientError) {
+          console.error('Patient error:', patientError);
+          throw patientError;
+        }
         
         if (!patientData) {
           showError('Patient data not found');
           return;
         }
+
+        console.log('Patient data loaded:', patientData);
 
         // Fetch patient documents
         const { data: documents, error: docsError } = await supabaseClient
@@ -401,6 +408,8 @@
           .select('*')
           .eq('patient_id', patientId)
           .order('uploaded_at', { ascending: false });
+
+        console.log('Documents query result:', { documents, docsError });
 
         if (docsError) {
           console.error('Error fetching documents:', docsError);
