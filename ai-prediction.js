@@ -31,7 +31,7 @@ async function generateAIPredictions(patientData, lifestyleData, mentalHealthSco
                     temperature: 0.7,
                     topK: 40,
                     topP: 0.95,
-                    maxOutputTokens: 2048,
+                    maxOutputTokens: 4096,  // Increased from 2048 to handle longer responses
                 }
             })
         });

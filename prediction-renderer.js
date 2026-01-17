@@ -29,9 +29,7 @@ function renderHealthPredictions(predictions, testRecommendations, riskAssessmen
                     ${icons.shield.replace('w-5 h-5', 'w-4 h-4 text-white')}
                 </div>
                 <span>AI Health Predictions</span>
-                <span class="ml-auto text-xs font-normal text-gray-500 bg-purple-50 px-2 py-1 rounded-md">
-                    Powered by Gemini AI
-                </span>
+                
             </h2>
 
             ${summary ? `
