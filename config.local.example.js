@@ -4,7 +4,7 @@
 // Copy this file to config.js and add your actual API keys for local development
 // DO NOT commit config.js to the repository!
 
-const SUPABASE_URL = ' ';
+const SUPABASE_URL = '     ';
 const SUPABASE_ANON_KEY = 'your-supabase-anon-key-here';
 
 // Gemini AI Configuration
