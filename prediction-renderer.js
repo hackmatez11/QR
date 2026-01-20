@@ -3,7 +3,7 @@
 // Display AI-generated predictions and recommendations
 // ============================================
 
-// Render health predictions section
+// Render health predictions section  
 function renderHealthPredictions(predictions, testRecommendations, riskAssessments, summary) {
     if (!predictions || predictions.length === 0) {
         return `
