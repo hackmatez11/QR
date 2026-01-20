@@ -1,5 +1,64 @@
 # QR Patient Profile - Modular Structure
 
+## 🚀 Deployment & Setup
+
+### For Local Development
+
+1. Copy the example config file:
+   ```bash
+   cp config.local.example.js config.js
+   ```
+
+2. Edit `config.js` and add your actual API keys:
+   - `SUPABASE_ANON_KEY`: Your Supabase anonymous key
+   - `GEMINI_API_KEY`: Your Google Gemini API key
+
+3. Open `index.html` in your browser or use a local server
+
+### For GitHub Pages Deployment
+
+This repository uses **GitHub Actions** to automatically deploy to GitHub Pages with secure environment variables.
+
+#### Setting up GitHub Secrets
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** → **Secrets and variables** → **Actions**
+3. Click **New repository secret** and add the following secrets:
+
+   - **Name**: `SUPABASE_URL`  
+     **Value**: `https://edwuptavjdakjuqyrxaf.supabase.co`
+
+   - **Name**: `SUPABASE_ANON_KEY`  
+     **Value**: Your Supabase anonymous key
+
+   - **Name**: `GEMINI_API_KEY`  
+     **Value**: Your Google Gemini API key
+
+4. The workflow will automatically run on every push to `main` branch
+
+#### Enabling GitHub Pages
+
+1. Go to **Settings** → **Pages**
+2. Under **Source**, select **GitHub Actions**
+3. Save the settings
+
+Your site will be available at: `https://hackmatez11.github.io/QR/`
+
+### 🔒 Important Security Notes
+
+- **Never commit `config.js`** - it's in `.gitignore` for a reason
+- The `config.template.js` file contains placeholders that get replaced during deployment
+- GitHub Secrets are encrypted and only accessible during workflow runs
+- Consider adding API key restrictions in Google Cloud Console:
+  - Restrict Gemini API key to your GitHub Pages domain: `https://hackmatez11.github.io`
+
+### Configuration Files Overview
+
+- `config.template.js` - Template with placeholders (committed to repo)
+- `config.local.example.js` - Example for local development (committed to repo)
+- `config.js` - Actual config with real keys (NOT committed, in .gitignore)
+- `.github/workflows/deploy.yml` - GitHub Actions deployment workflow
+
 ## Overview
 
 The QR patient profile has been refactored into a modular structure for better maintainability and organization. The page now displays comprehensive patient information including:
